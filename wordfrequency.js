@@ -21,10 +21,17 @@ function count_word_frequency() {
   return dictionary;
 }
 
-const count_word_frequency_2 = () => {
-  const text = "Hello world! Hello everyone.";
+const count_word_frequency_2 = (word) => {
+  if (typeof word !== "string") {
+    return false;
+  }
+
   // Using this aprotch to extract words only
-  const words = text.match(/\b\w+\b/g);
+  const words = word.match(/\b\w+\b/g);
+
+  if (!words) {
+    return false;
+  }
 
   return words.reduce((dictionary, currentWord) => {
     dictionary[currentWord] = (dictionary[currentWord] || 0) + 1;
@@ -34,3 +41,5 @@ const count_word_frequency_2 = () => {
 
 console.log(count_word_frequency());
 console.log(count_word_frequency_2());
+
+module.exports = { count_word_frequency_2 };
