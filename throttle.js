@@ -14,4 +14,6 @@ const throttle = (callBack, delay) => {
 const callBack = (props) => console.log("cb", props);
 const throttleEvent = throttle(callBack, 1000);
 
-window.addEventListener("resize", throttleEvent);
+// window.addEventListener("resize", throttleEvent);
+
+module.exports = { throttle };
