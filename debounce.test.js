@@ -8,8 +8,6 @@ describe("debounce", () => {
     const debounceFn = debounce(mockFn, 300);
 
     debounceFn();
-    debounceFn();
-    debounceFn();
 
     expect(mockFn).not.toHaveBeenCalled();
     jest.advanceTimersByTime(300);
@@ -24,20 +22,24 @@ describe("debounce", () => {
     debouncedFn();
     debouncedFn();
     debouncedFn();
+    expect(mockFn).toHaveBeenCalledTimes(0);
 
     jest.advanceTimersByTime(500);
     expect(mockFn).toHaveBeenCalledTimes(1);
   });
 
-  test("should cancel previous timeout", () => {
+  test("should call again after timeout", () => {
     const mockFn = jest.fn();
     const debouncedFn = debounce(mockFn, 200);
 
     debouncedFn();
-    debouncedFn();
-    debouncedFn();
-
+    expect(mockFn).toHaveBeenCalledTimes(0);
     jest.advanceTimersByTime(200);
     expect(mockFn).toHaveBeenCalledTimes(1);
+
+    debouncedFn();
+    expect(mockFn).toHaveBeenCalledTimes(1);
+    jest.advanceTimersByTime(200);
+    expect(mockFn).toHaveBeenCalledTimes(2);
   });
 });

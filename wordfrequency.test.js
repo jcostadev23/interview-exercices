@@ -12,7 +12,7 @@ describe("count_word_frequency_2", () => {
     ).toStrictEqual(expectedResult);
   });
 
-  test("counts how many times a word is used", () => {
+  test("counts words with different case", () => {
     const expectedResult = {
       Hello: 1,
       my: 1,

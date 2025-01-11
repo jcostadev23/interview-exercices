@@ -25,7 +25,7 @@ const promiseAll = (promises) => {
     let promisesCount = 0;
 
     promises.forEach((promise, index) => {
-      Promise.resolve(promise)
+      promise
         .then((result) => {
           results[index] = result;
           promisesCount++;
@@ -39,4 +39,4 @@ const promiseAll = (promises) => {
   });
 };
 
-promiseAll([]);
+promiseAll([fetch()]);
