@@ -8,7 +8,6 @@ const debounce = (callBack, time) => {
 
     timeOutId = setTimeout(() => {
       callBack();
-      console.log(...args);
     }, time);
   };
 };

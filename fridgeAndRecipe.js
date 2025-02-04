@@ -78,10 +78,11 @@ class FridgeAndRecipeManager {
 
   addRecipe(id, name, ingredients) {
     if (this.recipes[id]) {
-      return;
+      return "Already exist";
     }
 
     this.recipes[id] = { id, name, ingredients };
+    return true;
   }
 
   cookRecipe(recipeId) {
@@ -90,19 +91,13 @@ class FridgeAndRecipeManager {
       return false;
     }
 
-    let canCook = true;
     for (const ingredient of recipeIngredients) {
       if (
         !this.products[ingredient.productId] ||
         this.products[ingredient.productId].quantity < ingredient.quantity
       ) {
-        canCook = false;
-        break;
+        return false;
       }
-    }
-
-    if (!canCook) {
-      return false;
     }
 
     recipeIngredients.forEach((ingredient) => {
@@ -143,13 +138,4 @@ fridgeAndRecipeManeger.addRecipe(3, "Cake", [
   { productId: 2, quantity: 3 }, // Eggs
 ]);
 
-// Cooking recipes
-console.log("Cooking Pancakes:", fridgeAndRecipeManeger.cookRecipe(1)); // Should succeed
-console.log("Cooking Omelette:", fridgeAndRecipeManeger.cookRecipe(2)); // Should succeed
-console.log("Cooking Cake:", fridgeAndRecipeManeger.cookRecipe(3)); // Should fail due to insufficient Flour
-
-// Cooking the same recipe again
-console.log("Cooking Pancakes again:", fridgeAndRecipeManeger.cookRecipe(1)); // Should fail due to insufficient ingredients
-
-// Checking the fridge
-console.log(fridgeAndRecipeManeger.checkFridge()); // Returns fridge's current ingredients.
+module.exports = { FridgeAndRecipeManager };

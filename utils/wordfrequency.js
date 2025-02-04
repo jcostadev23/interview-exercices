@@ -39,7 +39,4 @@ const count_word_frequency_2 = (word) => {
   }, {});
 };
 
-console.log(count_word_frequency());
-console.log(count_word_frequency_2());
-
 module.exports = { count_word_frequency_2 };
