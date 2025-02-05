@@ -61,6 +61,12 @@ describe("FridgeAndRecipeManager", () => {
 
   test("CookRecipe", () => {
     const fridge = new FridgeAndRecipeManager();
+    const fridgeItems = [
+      { id: 1, name: "Milk", quantity: 8 },
+      { id: 2, name: "Eggs", quantity: 8 },
+      { id: 3, name: "Flour", quantity: 2 },
+      { id: 4, name: "Sugar", quantity: 6 },
+    ];
     fridge.addProduct(1, "Milk", 10);
     fridge.addProduct(2, "Eggs", 12);
     fridge.addProduct(3, "Flour", 5);
@@ -74,6 +80,7 @@ describe("FridgeAndRecipeManager", () => {
     ]);
 
     expect(fridge.cookRecipe(1)).toBe(true);
+    expect(fridge.checkFridge()).toStrictEqual(fridgeItems);
   });
 
   test("Check items on fridge", () => {
