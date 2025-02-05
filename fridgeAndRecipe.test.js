@@ -56,6 +56,12 @@ describe("FridgeAndRecipeManager", () => {
 
   test("If Recipe exist but not enough ingredients on the fridge should return false", () => {
     const fridge = new FridgeAndRecipeManager();
+    fridge.addRecipe(1, "Pancakes", [
+      { productId: 1, quantity: 2 },
+      { productId: 2, quantity: 4 },
+      { productId: 3, quantity: 3 },
+      { productId: 4, quantity: 2 },
+    ]);
     expect(fridge.cookRecipe(1)).toBe(false);
   });
 
