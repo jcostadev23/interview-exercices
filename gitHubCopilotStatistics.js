@@ -64,6 +64,7 @@ class GitHubCopilotStatisticsManager {
     }
 
     user.entries.push(this.createEntryTime());
+    return user.entries.length;
   }
 
   listOfActiveUsers() {
@@ -81,7 +82,7 @@ class GitHubCopilotStatisticsManager {
     return Object.values(this.users)
       .map((user) => {
         if (!user.entries) {
-          return;
+          return false;
         }
 
         return `${user.name} used copilot`;
