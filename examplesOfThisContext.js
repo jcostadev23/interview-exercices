@@ -5,9 +5,11 @@ const person = {
   firstName: function () {
     return this.name;
   },
+  fullName: () => console.log("fullName", this),
 };
 
 const personFirstName = person.firstName();
+person.fullName();
 
 function mostrarThis() {
   console.log("this", this);
@@ -51,3 +53,12 @@ const increment = contador.increment;
 increment.call(contador);
 increment.apply(contador, ["Teste dos args", "Apply"]);
 increment.call(contador);
+
+const numbers = [1, 2, 3, 4, 5];
+
+function multiply(number) {
+  console.log("multiply", number * 2);
+  console.log("Person name:", this.name, this.lastName);
+}
+
+numbers.forEach(multiply, person);
