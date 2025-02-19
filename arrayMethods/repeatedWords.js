@@ -4,7 +4,7 @@ class CountRepeatedWords {
   }
   countWords(listWords) {
     if (!listWords.length) {
-      return;
+      return false;
     }
 
     listWords.forEach((word) => {
@@ -28,3 +28,5 @@ const countWords = (listWords) =>
     words[word] = (words[word] ?? 0) + 1;
     return words;
   }, {});
+
+module.exports = { CountRepeatedWords, countWords };
