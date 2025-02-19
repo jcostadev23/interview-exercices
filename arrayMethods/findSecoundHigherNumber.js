@@ -1,5 +1,3 @@
-const numeros = [10, 25, 39, 40, 55, 15, 40];
-
 function secondHigher(numbers) {
   if (numbers.length < 2) {
     return false;
@@ -22,7 +20,7 @@ function bubbleSort(numbers) {
     }
   }
 
-  return numbers[numbersLength - 2];
+  return numbers;
 }
 
 module.exports = { secondHigher, bubbleSort };
