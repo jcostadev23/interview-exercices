@@ -1,4 +1,7 @@
-const { groupByCategory, groupByCategory2 } = require("./arrayMethods");
+const {
+  groupByCategory,
+  groupByCategory2,
+} = require("./storeElementsByCategory");
 
 describe("groupedByCategory should organize elements by category", () => {
   test("should return false if no elements", () => {
