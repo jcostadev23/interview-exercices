@@ -10,3 +10,5 @@ const usersActive = (users) => {
   }
   return activeUsers;
 };
+
+module.exports = { activeUsers, usersActive };
